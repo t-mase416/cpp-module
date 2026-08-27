@@ -1,7 +1,7 @@
-CXX				= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
-NAME = megaphone
-SRCS = megaphone.cpp
+CXX	= c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = PhoneBook
+SRCS = PhoneBook.cpp Contact.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
