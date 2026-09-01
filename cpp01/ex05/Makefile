@@ -1,7 +1,7 @@
 CXX   = c++
 CXXFLAGS  = -Wall -Wextra -Werror -std=c++98
-NAME = violence
-SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+NAME = Harl
+SRCS = main.cpp Harl.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
