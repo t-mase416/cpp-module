@@ -17,4 +17,15 @@ class Harl {
         void    _error(void);
 };
 
+enum Level {
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR,
+    UNKNOWN
+};
+
+void    harlFilter(const std::string& levelStr);
+
+
 #endif

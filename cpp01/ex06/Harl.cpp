@@ -1,4 +1,5 @@
 #include "Harl.hpp"
+#include <iostream>
 
 Harl::Harl() {
 
@@ -28,6 +29,46 @@ void    Harl::complain(std::string level) {
             (this->*functions[i])();
             return ;
         }
+    }
+}
+
+Level   getLevel(const std::string& levelStr) {
+    if (levelStr == "DEBUG") return DEBUG;
+    if (levelStr == "INFO") return INFO;
+    if (levelStr == "WARNING") return WARNING;
+    if (levelStr == "ERROR") return ERROR;
+    return UNKNOWN;
+}
+
+void    harlFilter(const std::string& levelStr) {
+    Harl harl;
+
+    switch (getLevel(levelStr)) {
+        case DEBUG:
+            std::cout << "[ DEBUG ]" << std::endl;
+            harl.complain("DEBUG");
+            std::cout << std::endl;
+            /*fallthrough*/
+            // break を書かずに下の case へ流す（フォールスルー）
+        case INFO:
+            std::cout << "[ INFO ]" << std::endl;
+            harl.complain("INFO");
+            std::cout << std::endl;
+            /*fallthrough*/
+        case WARNING:
+            std::cout << "[ WARNING ]" << std::endl;
+            harl.complain("WARNING");
+            std::cout << std::endl;
+            /*fallthrough*/
+        case ERROR:
+            std::cout << "[ ERROR ]" << std::endl;
+            harl.complain("ERROR");
+            std::cout << std::endl;
+            /*fallthrough*/
+            break;
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+            break;
     }
 }
 
